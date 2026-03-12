@@ -52,10 +52,6 @@
                 </div>
                 <div class="hero__stats">
                     <div class="hero__stat">
-                        <div class="hero__stat-value">7,000+</div>
-                        <div class="hero__stat-label">導入企業</div>
-                    </div>
-                    <div class="hero__stat">
                         <div class="hero__stat-value">50,000+</div>
                         <div class="hero__stat-label">提携インフルエンサー</div>
                     </div>
@@ -821,5 +817,22 @@
             </div>
         </div>
     </footer>
+    <script>
+        const header = document.querySelector('.header');
+        const hero = document.querySelector('.hero');
+
+        function applyHeroOffset() {
+            const h = header.offsetHeight;
+            hero.style.marginTop = `-${h}px`;
+            hero.style.paddingTop = `calc(5rem + ${h}px)`;
+        }
+
+        applyHeroOffset();
+        window.addEventListener('resize', applyHeroOffset);
+
+        window.addEventListener('scroll', function () {
+            header.classList.toggle('header--scrolled', window.scrollY > 0);
+        });
+    </script>
 </body>
 </html>
